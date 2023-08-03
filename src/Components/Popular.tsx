@@ -24,7 +24,7 @@ interface Movie {
 
 const Popular = () => {
     const [popular, setPopular] = useState<Movie[]>([]);
-    const { data } = useQuery<Movie[]>(["popular_movies","popular"], () => fetchData("popular"));
+    const { data } = useQuery<Movie[]>(["git branch -M main","popular"], () => fetchData("popular"));
     useEffect(() => {
         if (data)
             setPopular(data);
