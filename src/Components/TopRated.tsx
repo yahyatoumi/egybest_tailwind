@@ -26,7 +26,6 @@ interface MyComponentProps {
 
 const TopRated = () => {
     const [topRated, setTopRated] = useState<Movie[]>([]);
-
     const { data: data2 } = useQuery<Movie[]>(["topRated_movies", "top_rated"], () => fetchData("top_rated"));
     useEffect(() => {
         if (data2)

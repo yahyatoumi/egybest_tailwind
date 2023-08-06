@@ -1,6 +1,7 @@
 import { BiSolidCameraMovie, BiMoviePlay, BiSearch, BiStar, BiSolidUser, BiPlay } from "react-icons/bi"
 
 const Top = () => {
+  console.log("totop")
     return (
         <div className='h-screen ml-0 sm:ml-16 sm:w-vw-16 sm:h-[60vh] sm:min-h-[400px]'>
       <nav className='hidden absolute left-0 pt-3 w-16 sm:flex flex-col gap-5 items-center h-[200vh]'>

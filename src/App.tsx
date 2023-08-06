@@ -29,7 +29,7 @@ interface Movie {
 
 function App() {
   
-  console.log("zzz");
+  console.log("appapp");
   return (
     <div className='bg-[#333333]'>
       <Top />

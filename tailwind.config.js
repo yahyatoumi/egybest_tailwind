@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        'vw-16': 'calc(100vw - 64px)',
+        'vw-16': 'calc(100vw - 81px)',
       },
     },
   },

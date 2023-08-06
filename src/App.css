@@ -806,7 +806,7 @@ video {
   }
 
   .sm\:w-vw-16 {
-    width: calc(100vw - 64px);
+    width: calc(100vw - 81px);
   }
 
   .sm\:grid-cols-4 {
