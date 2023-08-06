@@ -33,8 +33,10 @@ function App() {
   return (
     <div className='bg-[#333333]'>
       <Top />
-      <div className="mt-10 p-5 sm:ml-16 bg-[#333333]">
+      <div className="mt-10 pr-5 pb-5 sm:ml-16 bg-[#333333]">
+        <h1 className="mb-5 text-white">Popular Now</h1>
         <Popular />
+        <h1 className="mt-10 mb-5 text-white">Top Rated</h1>
         <TopRated />
       </div>
     </div>
