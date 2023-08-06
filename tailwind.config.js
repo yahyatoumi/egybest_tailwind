@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        'vw-16': 'calc(100vw - 81px)',
+        "vw-16": "calc(100vw - 81px)",
       },
     },
   },
-  plugins: [],
-}
+  plugins: ["prettier-plugin-tailwindcss"],
+};
