@@ -68,16 +68,16 @@ const MovieDetails = () => {
             </span>
           </div>
         </div>
-        <div className="mr-4 flex gap-4">
+        <div className="hidden mr-4 lg:flex gap-4">
           <div className="w-28 text-center">
             <span className="text-sm tracking-wider text-gray-300">
               API RATING
             </span>
-            <div className="flex h-12 items-center justify-around">
+            <div className="flex h-12 items-center justify-around bg-white-300 opacity-40">
               <AiFillStar className="h-8 w-8 text-yellow-500" />
               <div className="flex flex-col  text-left">
-                <span>{data?.vote_average.toFixed(2) + "/10"}</span>
-                <span>
+                <span>{data?.vote_average.toFixed(2)}<span className="text-gray-400 text-sm">/10</span></span>
+                <span className="text-gray-400 text-sm">
                   {formatNumber(data?.vote_count ? data.vote_count : 0)}
                 </span>
               </div>
