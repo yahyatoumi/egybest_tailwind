@@ -63,7 +63,7 @@ const MovieInfos: React.FC<Props> = (props) => {
                 </div>
                 <div className="hidden mr-4 lg:flex gap-2 items-center">
                     <div className="w-28 text-center text-sm">
-                        <span className="text-xs tracking-wider text-gray-300">
+                        <span className="text-xs tracking-widest  text-white opacity-50 font-bold">
                             API RATING
                         </span>
                         <div className="cursor-pointer flex h-10 items-center justify-center gap-2 rounded hover:bg-white hover:bg-opacity-10 font-semibold">
@@ -77,7 +77,7 @@ const MovieInfos: React.FC<Props> = (props) => {
                         </div>
                     </div>
                     <div className="flex flex-col items-center w-28 text-center text-xs">
-                        <span className=" tracking-wider text-gray-300">
+                        <span className=" tracking-widest  text-white opacity-50 font-bold">
                             YOUR RATING
                         </span>
                         <div className="cursor-pointer w-fit px-2 flex h-10 items-center justify-center gap-2 text-blue-500 rounded hover:bg-white hover:bg-opacity-10 font-semibold">
@@ -86,7 +86,7 @@ const MovieInfos: React.FC<Props> = (props) => {
                         </div>
                     </div>
                     <div className="flex flex-col items-center w-28 text-center  font-semibold text-xs">
-                        <span className="text-xs tracking-wider text-gray-300 ">
+                        <span className="text-xs tracking-widest  text-white opacity-50  font-bold">
                             BUDGET
                         </span>
                         <div className="cursor-pointer w-fit flex gap-2 h-10 items-center justify-center rounded hover:bg-white hover:bg-opacity-10">
