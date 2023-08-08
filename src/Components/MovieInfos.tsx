@@ -61,35 +61,35 @@ const MovieInfos: React.FC<Props> = (props) => {
                         </span>
                     </div>
                 </div>
-                <div className="hidden mr-4 lg:flex gap-4 items-center">
+                <div className="hidden mr-4 lg:flex gap-2 items-center">
                     <div className="w-28 text-center text-sm">
                         <span className="text-xs tracking-wider text-gray-300">
                             API RATING
                         </span>
-                        <div className="cursor-pointer flex h-10 items-center justify-around rounded hover:bg-white hover:bg-opacity-10 font-semibold">
+                        <div className="cursor-pointer flex h-10 items-center justify-center gap-2 rounded hover:bg-white hover:bg-opacity-10 font-semibold">
                             <AiFillStar className="h-6 w-6 text-yellow-500" />
-                            <div className="flex flex-col  text-left">
-                                <span>{props.data?.vote_average.toFixed(2)}<span className="text-gray-100 text-xs">/10</span></span>
-                                <span className="text-gray-100 text-xs">
+                            <div className="flex flex-col text-left justify-start">
+                                <span className='text-base'>{props.data?.vote_average.toFixed(2)}<span className="text-gray-300 text-xs">/10</span></span>
+                                <span className="text-gray-400 text-xs">
                                     {formatNumber(props.data?.vote_count ? props.data.vote_count : 0)}
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <div className="w-28 text-center text-xs">
+                    <div className="flex flex-col items-center w-28 text-center text-xs">
                         <span className=" tracking-wider text-gray-300">
                             YOUR RATING
                         </span>
-                        <div className="cursor-pointer flex h-10 items-center justify-center gap-2 text-blue-500 rounded hover:bg-white hover:bg-opacity-10 font-semibold">
+                        <div className="cursor-pointer w-fit px-2 flex h-10 items-center justify-center gap-2 text-blue-500 rounded hover:bg-white hover:bg-opacity-10 font-semibold">
                             <AiOutlineStar className="h-6 w-6" />
                             <span className="text-lg">Rate</span>
                         </div>
                     </div>
-                    <div className="w-28 text-center  font-semibold text-xs">
+                    <div className="flex flex-col items-center w-28 text-center  font-semibold text-xs">
                         <span className="text-xs tracking-wider text-gray-300 ">
                             BUDGET
                         </span>
-                        <div className="cursor-pointer flex h-10 items-center justify-around rounded hover:bg-white hover:bg-opacity-10">
+                        <div className="cursor-pointer w-fit flex gap-2 h-10 items-center justify-center rounded hover:bg-white hover:bg-opacity-10">
                             <MdMoneyOff className="h-6 w-6 text-yellow-600" />
                             <span>{formatNumber(props.data?.budget ? props.data?.budget : 0) + " $"}</span>
                         </div>

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import fetchData from "../helpers/fetch";
 import { BiSolidStar } from "react-icons/bi";

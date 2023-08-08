@@ -13,7 +13,6 @@ const MovieDetails = () => {
   );
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>ooops sorry...!</div>;
-  console.log(data);
   return (
     <div className="bg-[#222]">
       <Nav />

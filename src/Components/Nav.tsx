@@ -4,7 +4,6 @@ import { BsFillBookmarkPlusFill } from "react-icons/bs"
 import { IoMdClose } from "react-icons/io"
 
 const Nav = () => {
-    const [movieDetails, setMovieDetails] = useState<MovieDetails>();
     const inputRef = useRef<HTMLInputElement | null>(null);
     const inputRef0 = useRef<HTMLInputElement | null>(null);
     const [search, setSearch] = useState(false);
