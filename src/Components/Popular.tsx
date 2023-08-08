@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Popular = () => {
   const { data, isLoading } = useQuery<Movie[]>(
-    ["git branch -M main", "popular"],
+    ["popular_movies", "popular"],
     () => fetchData("popular"),
   );
   if (isLoading) return <div className="text-white">Loading...</div>;

@@ -9,7 +9,7 @@ import {
 
 const Top = () => {
   return (
-    <div className="ml-0 h-screen sm:ml-16 sm:h-[60vh] sm:min-h-[400px] sm:w-vw-16">
+    <div className="ml-0 h-screen sm:ml-16 max-h-[700px] sm:max-h-[60vh] sm:h-[60vh] sm:min-h-[400px] sm:w-vw-16">
       <nav className="absolute left-0 hidden h-[200vh] w-16 flex-col items-center gap-5 pt-3 sm:flex">
         <BiSolidCameraMovie className=" h-10 w-10 text-red-600" />
         <BiSearch className=" h-6 w-6 text-white" />
@@ -25,7 +25,7 @@ const Top = () => {
             "url('https://hervehubert.tv/wp-content/uploads/2019/10/Logo-full-hd-1.jpg')",
         }}
       ></div>
-      <div className="flex h-3/5 flex-col gap-5 bg-black p-5 pb-10 text-white sm:absolute sm:top-0 sm:h-[60vh] sm:min-h-[400px] sm:w-vw-16 sm:bg-transparent sm:bg-gradient-to-br  sm:from-black sm:to-transparent">
+      <div className="flex h-3/5 flex-col gap-5 bg-black p-5 pb-10 text-white sm:absolute sm:top-0 max-h-[400px] sm:max-h-[60vh] sm:h-[60vh] sm:min-h-[400px] sm:w-vw-16 sm:bg-transparent sm:bg-gradient-to-br  sm:from-black sm:to-transparent">
         <h2 className="text-4xl font-bold ">SAM AWAY</h2>
         <p className="text-xs  font-thin text-gray-400">
           Adventure, Fantasy | 2019 | 136 Min.

@@ -26,7 +26,11 @@ function App() {
             </div>
           }
         />
-        <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/movie/:id" element={
+          <div className="w-screen bg-[#222]">
+            <MovieDetails />
+          </div>
+        } />
       </Routes>
     </Router>
   );

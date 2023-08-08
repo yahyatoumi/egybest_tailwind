@@ -13,7 +13,8 @@ const Nav = () => {
         inputRef.current?.focus();
     };
     return (
-        <nav className="h-14 w-screen bg-black lg:pl-10 lg:pr-10 pr-5 pl-5 flex justify-between">
+        <div className="w-screen bg-black">
+        <nav className="h-14 w-screen max-w-[1300px]  lg:pl-10 lg:pr-10 pr-5 pl-5 flex justify-between my-0 mx-auto">
             <div className="flex items-center lg:w-40 w-32 h-full justify-center lg:justify-center lg:gap-2 gap-2 lg:flex-row flex-row-reverse">
                 <BiSolidCameraMovie className="w-10 h-10 text-red-600 cursor-pointer" />
                 <div className="flex items-center justify-center gap-1 hover:bg-white hover:bg-opacity-10 rounded-md w-12 lg:w-24 h-12 lg:h-8 cursor-pointer">
@@ -66,6 +67,7 @@ const Nav = () => {
                 </div>
             </div>
         </nav>
+        </div>
     )
 }
 
