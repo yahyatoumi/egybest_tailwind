@@ -11,8 +11,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MovieDetails from "./Components/MovieDetails";
 
 function App() {
-  console.log("appapp");
-  return (
+  return ( 
     <Router>
       <Routes>
         <Route
@@ -20,7 +19,7 @@ function App() {
           element={
             <div className="bg-[#333333]">
               <Top />
-              <div className="mt-10 bg-[#333333] pr-5 pb-5 sm:ml-16">
+              <div className="mt-10 bg-[#333333] pr-5 pl-5 sm:pl-0 pb-5 sm:ml-16">
                 <Popular />
                 <TopRated />
               </div>

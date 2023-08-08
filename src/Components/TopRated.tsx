@@ -5,21 +5,17 @@ import { BiSolidStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const TopRated = () => {
-  const [topRated, setTopRated] = useState<Movie[]>([]);
   const { data, isLoading } = useQuery<Movie[]>(
     ["topRated_movies", "top_rated"],
     () => fetchData("top_rated"),
   );
-  useEffect(() => {
-    if (data) setTopRated(data);
-  }, [data]);
   if (isLoading) return <div></div>;
   return (
     <>
       <h1 className="mt-10 mb-5 text-white">Top Rated</h1>
 
       <div className="grid grid-cols-3 gap-5 sm:grid-cols-4 lg:grid-cols-6">
-        {topRated.slice(0, 12).map((film) => (
+        {data?.slice(0, 12).map((film) => (
           <Link
             className="relative"
             key={film.poster_path}

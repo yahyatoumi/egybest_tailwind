@@ -5,20 +5,16 @@ import { BiSolidStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const Popular = () => {
-  const [popular, setPopular] = useState<Movie[]>([]);
   const { data, isLoading } = useQuery<Movie[]>(
     ["git branch -M main", "popular"],
     () => fetchData("popular"),
   );
-  useEffect(() => {
-    if (data) setPopular(data);
-  }, [data]);
   if (isLoading) return <div className="text-white">Loading...</div>;
   return (
     <>
       <h1 className="mb-5 text-white">Popular Now</h1>
       <div className="grid grid-cols-3 gap-5 sm:grid-cols-4 lg:grid-cols-6">
-        {popular.slice(0, 12).map((film) => (
+        {data?.slice(0, 12).map((film) => (
           <Link className="relative" key={film.id} to={`/movie/${film.id}`}>
             <img
               key={film.poster_path}
