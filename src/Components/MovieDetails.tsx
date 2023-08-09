@@ -3,6 +3,7 @@ import fetchData from "../helpers/fetch";
 import { useQuery } from "@tanstack/react-query";
 import Nav from "./Nav";
 import MovieInfos from "./MovieInfos";
+import MovieMedia from "./MovieMedia";
 // import { useEffect, useState } from "react";
 
 const MovieDetails = () => {
@@ -16,9 +17,12 @@ const MovieDetails = () => {
   return (
     <div className="bg-[#222]">
       <Nav />
-      {data ? 
-      <MovieInfos data={data}/>
-    : ""}
+      {data ?
+        <>
+          <MovieInfos data={data} />
+          <MovieMedia data={data} />
+        </>
+        : ""}
     </div>
   );
 };
