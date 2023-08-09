@@ -69,7 +69,7 @@ const MovieInfos: React.FC<Props> = (props) => {
                         <div className="cursor-pointer flex h-10 items-center justify-center gap-2 rounded hover:bg-white hover:bg-opacity-10 font-semibold">
                             <AiFillStar className="h-6 w-6 text-yellow-500" />
                             <div className="flex flex-col text-left justify-start">
-                                <span className='text-base'>{props.data?.vote_average.toFixed(2)}<span className="text-gray-300 text-xs">/10</span></span>
+                                <span className='text-base'>{props.data?.vote_average.toFixed(1)}<span className="text-gray-300 text-xs">/10</span></span>
                                 <span className="text-gray-400 text-xs">
                                     {formatNumber(props.data?.vote_count ? props.data.vote_count : 0)}
                                 </span>

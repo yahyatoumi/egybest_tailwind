@@ -1,21 +1,40 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { BiSolidCameraMovie, BiCaretDown, BiSearch } from "react-icons/bi";
 import { BsFillBookmarkPlusFill } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import searchData from "../helpers/searchFetch";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const inputRef0 = useRef<HTMLInputElement | null>(null);
   const [search, setSearch] = useState(false);
+  const [search0, setSearch0] = useState(false);
   const [query, setQuery] = useState("");
-  const { data } = useQuery(["search", query], () => searchData(query));
+  const { data } = useQuery<Movie[]>(["search", query], () =>
+    searchData(query),
+  );
   console.log(data);
   const handleSearchIconClick = () => {
     setSearch(true);
     inputRef.current?.focus();
   };
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest(".search")) {
+        setSearch(false);
+        setSearch0(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      window.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
   return (
     <div className="w-screen bg-black">
       <nav className="my-0 mx-auto flex  h-14 w-screen max-w-[1300px] justify-between pr-5 pl-5 lg:pl-10 lg:pr-10">
@@ -39,14 +58,44 @@ const Nav = () => {
             type="text"
             placeholder="Search IMDB"
             className="h-3/6 w-full rounded-r pl-2 text-sm text-gray-600 outline-0"
+            onClick={() => setSearch0(true)}
             onChange={() =>
               setQuery(inputRef0.current?.value ? inputRef0.current?.value : "")
             }
           />
           <BiSearch
             className="absolute right-10 top-2/4 -mt-2.5 h-5 cursor-pointer text-black"
-            onClick={() => inputRef0?.current?.focus()}
+            onClick={() => {
+              inputRef0?.current?.focus();
+              setSearch0(true);
+            }}
           />
+          {search || search0 ? (
+            <div className="search absolute top-14 z-10 w-full px-5">
+              {data?.slice(0, 5).map((film) => (
+                <Link
+                  className="flex cursor-pointer border-b bg-black p-5 text-white hover:bg-gray-900"
+                  to={`/movie/${film.id}`}
+                  key={film.id}
+                >
+                  <div className="w-12">
+                    <img
+                      src={
+                        "https://image.tmdb.org/t/p/original" + film.poster_path
+                      }
+                      alt=""
+                    />
+                  </div>
+                  <div className="items-left ml-2 flex flex-col justify-center">
+                    <span>{film.title}</span>
+                    <span>{film.release_date.slice(0, 4)}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="flex h-full min-w-[175px] flex-row items-center justify-between gap-2 lg:min-w-[350px] lg:justify-center lg:gap-2">
           <div className="hidden w-1 items-center justify-between sm:flex lg:w-3/5">
@@ -72,7 +121,7 @@ const Nav = () => {
                 ref={inputRef}
                 autoFocus
                 type="text"
-                className="ml-5 w-full bg-gray-500 outline-0"
+                className="search ml-5 w-full bg-gray-500 outline-0"
                 placeholder="Search IMDB"
                 onChange={() =>
                   setQuery(
@@ -80,6 +129,33 @@ const Nav = () => {
                   )
                 }
               />
+              {search || search0 ? (
+                <div className="search absolute top-14 z-10 w-full px-5">
+                  {data?.slice(0, 5).map((film) => (
+                    <Link
+                      className="flex cursor-pointer border-b bg-black p-5 text-white hover:bg-gray-900"
+                      to={`/movie/${film.id}`}
+                      key={film.id}
+                    >
+                      <div className="w-12">
+                        <img
+                          src={
+                            "https://image.tmdb.org/t/p/original" +
+                            film.poster_path
+                          }
+                          alt=""
+                        />
+                      </div>
+                      <div className="items-left ml-2 flex flex-col justify-center">
+                        <span>{film.title}</span>
+                        <span>{film.release_date.slice(0, 4)}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
               <div
                 className="absolute top-2/4 right-4 -mt-4 flex h-8 w-8 cursor-pointer items-center justify-center rounded-2xl hover:bg-gray-800"
                 onClick={() => setSearch(false)}
