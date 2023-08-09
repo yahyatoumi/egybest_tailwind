@@ -1,12 +1,23 @@
 import trailer from "../imgs/trailer.jpg";
 import { MdOutlineVideoLibrary } from "react-icons/md";
 import { AiOutlinePicture } from "react-icons/ai";
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { MdMoneyOff } from 'react-icons/md';
 
 interface Props {
   data: MovieDetails;
 }
 
 const MovieMedia: React.FC<Props> = (props) => {
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + "M";
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(1) + "K";
+    } else {
+      return num.toString();
+    }
+  };
   return (
     <div className="mt-5">
       <div className="relative mx-auto flex max-w-[1300px] gap-1 px-5 pb-5 lg:px-10">
@@ -57,16 +68,60 @@ const MovieMedia: React.FC<Props> = (props) => {
           </div>
         </div>
       </div>
-      <div className="mx-auto mt-10 w-full  max-w-[1300px] px-5  py-2 text-white lg:mt-0 lg:px-10">
-        <div className="flex max-w-2xl flex-wrap gap-1">
-          {props.data?.genres.map((genre) => (
-            <div className="rounded-2xl border border-white px-5 py-1 hover:bg-white hover:bg-opacity-10 cursor-pointer">
-              <span>{genre.name}</span>
-            </div>
-          ))}
+      <div className="mx-auto mt-10 flex w-full max-w-[1300px]  gap-3 px-5  py-2 text-white lg:mt-0 lg:px-10">
+        <div className="w-[120px] min-w-[120px] sm:hidden">
+          <img
+            className="w-full"
+            src={"https://image.tmdb.org/t/p/original" + props.data.poster_path}
+            alt=""
+          />
         </div>
-        <div className="max-w-2xl py-5 text-white">
-          <span>{props.data.overview}</span>
+        <div>
+          <div className="flex max-w-2xl flex-wrap gap-1">
+            {props.data?.genres.map((genre) => (
+              <div className="cursor-pointer rounded-2xl border border-white px-5 py-1 hover:bg-white hover:bg-opacity-10">
+                <span>{genre.name}</span>
+              </div>
+            ))}
+          </div>
+          <div className="max-w-2xl pt-5 text-white">
+            <span>{props.data.overview}</span>
+          </div>
+        </div>
+      </div>
+      <div className="mr-4 flex lg:hidden items-center justify-start gap-0 text-white w-full px-5">
+        <div className="w-36 text-center text-sm">
+          <div className="flex h-10 cursor-pointer items-center justify-center gap-2 rounded font-semibold hover:bg-white hover:bg-opacity-10">
+            <AiFillStar className="h-6 w-6 text-yellow-500" />
+            <div className="flex gap-2 items-center justify-start text-left">
+              <span className="text-base">
+                {props.data?.vote_average.toFixed(1)}
+                <span className="text-xs text-gray-300">/10</span>
+              </span>
+              <span className="mb-2">
+              .
+              </span>
+              <span className="text-sm text-gray-400">
+                {formatNumber(
+                  props.data?.vote_count ? props.data.vote_count : 0,
+                )}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="flex w-24 flex-col items-center text-center text-xs">
+          <div className="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded px-2 font-semibold text-blue-500 hover:bg-white hover:bg-opacity-10">
+            <AiOutlineStar className="h-6 w-6" />
+            <span className="text-lg">Rate</span>
+          </div>
+        </div>
+        <div className="flex w-20 flex-col items-center text-center  text-xs font-semibold">
+          <div className="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded hover:bg-white hover:bg-opacity-10">
+            <MdMoneyOff className="h-6 w-6 text-yellow-600" />
+            <span>
+              {formatNumber(props.data?.budget ? props.data?.budget : 0) + " $"}
+            </span>
+          </div>
         </div>
       </div>
     </div>
