@@ -26,6 +26,7 @@ const Nav = () => {
       if (!target.closest(".search")) {
         setSearch(false);
         setSearch0(false);
+        setQuery("");
       }
     };
 
@@ -116,7 +117,7 @@ const Nav = () => {
             <BiSearch className="h-5 text-white" />
           </div>
           {search ? (
-            <div className="absolute left-0 flex h-14 w-full bg-gray-500">
+            <div className="absolute left-0 z-10 flex h-14 w-full bg-gray-500">
               <input
                 ref={inputRef}
                 autoFocus
@@ -130,10 +131,10 @@ const Nav = () => {
                 }
               />
               {search || search0 ? (
-                <div className="search absolute top-14 z-10 w-full px-5">
+                <div className="search absolute top-14 left-0 z-10 w-screen h-60">
                   {data?.slice(0, 5).map((film) => (
                     <Link
-                      className="flex cursor-pointer border-b bg-black p-5 text-white hover:bg-gray-900"
+                      className="z-10 w-screen flex cursor-pointer border-b bg-black p-5 text-white hover:bg-gray-900"
                       to={`/movie/${film.id}`}
                       key={film.id}
                     >

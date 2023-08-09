@@ -19,17 +19,17 @@ const MovieMedia: React.FC<Props> = (props) => {
     }
   };
   return (
-    <div className="mt-5">
-      <div className="relative mx-auto flex max-w-[1300px] gap-1 px-5 pb-5 lg:px-10">
+    <div className="mt-5 z-1">
+      <div className="relative z-1 mx-auto flex max-w-[1300px] gap-1 px-5 pb-5 lg:px-10">
         <div className="relative hidden h-full w-5/12 sm:flex lg:w-3/12">
           <img
             src={"https://image.tmdb.org/t/p/original" + props.data.poster_path}
             alt=""
           />
         </div>
-        <div className="w-full sm:w-9/12 lg:w-7/12">
+        <div className="w-full z-1 sm:w-9/12 lg:w-7/12">
           <iframe
-            className="min-h-[250px]  w-full sm:h-full"
+            className="min-h-[250px] z-1  w-full sm:h-full"
             width=""
             height=""
             src="https://www.youtube.com/embed/SUXWAEX2jlg"
