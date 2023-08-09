@@ -22,7 +22,7 @@ const MovieInfos: React.FC<Props> = (props) => {
     return (
         <>
             <div className="my-0 mx-auto w-full max-w-[1300px]">
-                <div className="flex h-10 items-center justify-end gap-6 px-5 text-white lg:px-10 text-sm font-semibold">
+                <div className="flex h-10 items-center justify-end gap-1 sm:gap-6 px-5 text-white lg:px-10 text-sm font-semibold">
                     <div className="hidden items-center gap-3 lg:flex">
                         <div className="cursor-pointer hover:border-b">Cast & crew</div>
                         <span className="pb-2">.</span>
@@ -46,7 +46,7 @@ const MovieInfos: React.FC<Props> = (props) => {
             </div>
             <div className="my-0 mx-auto flex w-full max-w-[1300px] justify-between px-5 text-white lg:px-10">
                 <div>
-                    <div className="text-5xl">{props.data?.original_title}</div>
+                    <div className="text-3xl">{props.data?.original_title}</div>
                     <div className="flex items-center gap-2 text-sm text-gray-300">
                         <span>{props.data?.release_date.slice(0, 4)}</span>
                         <span className="pb-2">.</span>
