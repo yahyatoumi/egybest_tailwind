@@ -15,7 +15,11 @@ const Popular = () => {
       <h1 className="mb-5 text-white">Popular Now</h1>
       <div className="grid grid-cols-3 gap-5 sm:grid-cols-4 lg:grid-cols-6">
         {data?.slice(0, 12).map((film) => (
-          <Link className="relative" key={film.id} to={`/movie/${film.id}`}>
+          <Link
+            className="relative hover:opacity-50"
+            key={film.id}
+            to={`/movie/${film.id}`}
+          >
             <img
               key={film.poster_path}
               src={"https://image.tmdb.org/t/p/original" + film.poster_path}

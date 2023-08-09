@@ -16,7 +16,7 @@ const TopRated = () => {
       <div className="grid grid-cols-3 gap-5 sm:grid-cols-4 lg:grid-cols-6">
         {data?.slice(0, 12).map((film) => (
           <Link
-            className="relative"
+            className="relative hover:opacity-50"
             key={film.poster_path}
             to={`/movie/${film.id}`}
           >
