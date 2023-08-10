@@ -3,6 +3,7 @@ import { MdOutlineVideoLibrary } from "react-icons/md";
 import { AiOutlinePicture } from "react-icons/ai";
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { MdMoneyOff } from 'react-icons/md';
+import { BsFillBookmarkHeartFill } from "react-icons/bs"
 
 interface Props {
   data: MovieDetails;
@@ -19,24 +20,23 @@ const MovieMedia: React.FC<Props> = (props) => {
     }
   };
   return (
-    <div className="mt-5 z-1">
-      <div className="relative z-1 mx-auto flex max-w-[1300px] gap-1 px-5 pb-5 lg:px-10">
-        <div className="relative hidden h-full w-5/12 sm:flex lg:w-3/12">
-          <img
+    <div className="mt-5">
+      <div className="relative mx-auto flex max-w-[1300px] gap-1 px-5 pb-5 lg:px-10">
+        <div className="relative hidden h-full w-4/12 sm:flex lg:2/12">
+          <img className="w-full"
             src={"https://image.tmdb.org/t/p/original" + props.data.poster_path}
             alt=""
           />
+          <BsFillBookmarkHeartFill className="absolute cursor-pointer left-0 top-0 w-14 h-14 text-black text-opacity-70 hover:text-opacity-90 -ml-1.5"/>
         </div>
-        <div className="w-full z-1 sm:w-9/12 lg:w-7/12">
+        <div className="w-full sm:w-9/12 lg:w-7/12">
           <iframe
-            className="min-h-[250px] z-1  w-full sm:h-full"
+            className="min-h-[250px] w-full sm:h-full"
             width=""
             height=""
             src="https://www.youtube.com/embed/SUXWAEX2jlg"
             title="YouTube video player"
-            //   frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            //   allowfullscreen
           ></iframe>
         </div>
         <div className="hidden w-2/12  lg:flex lg:flex-col lg:gap-1">
@@ -53,7 +53,7 @@ const MovieMedia: React.FC<Props> = (props) => {
             </div>
           </div>
         </div>
-        <div className="absolute -bottom-5 left-0 block flex  w-full gap-1 px-5 text-white lg:hidden lg:hidden">
+        <div className="absolute -bottom-5 left-0 flex  w-full gap-1 px-5 text-white lg:hidden">
           <div className="h-full w-3/6 cursor-pointer bg-gray-400 hover:bg-opacity-40">
             <div className="flex items-center justify-center gap-1 p-1">
               <MdOutlineVideoLibrary className="h-4 w-4" />
@@ -99,7 +99,7 @@ const MovieMedia: React.FC<Props> = (props) => {
                 <span className="text-xs text-gray-300">/10</span>
               </span>
               <span className="mb-2">
-              .
+                .
               </span>
               <span className="text-sm text-gray-400">
                 {formatNumber(
