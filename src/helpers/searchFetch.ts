@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const searchData = async (query: string) => {
-    if (query.length === 0)
-        return ;
+    if (query === "")
+        return [];
 console.log("hohohohoho" + query.length)
   try {
     const response = await axios.get(`https://api.themoviedb.org/3/search/movie`, {

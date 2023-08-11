@@ -79,7 +79,7 @@ const MovieMedia: React.FC<Props> = (props) => {
         <div>
           <div className="flex max-w-2xl flex-wrap gap-1">
             {props.data?.genres.map((genre) => (
-              <div className="cursor-pointer rounded-2xl border border-white px-5 py-1 hover:bg-white hover:bg-opacity-10">
+              <div key={genre.id} className="cursor-pointer rounded-2xl border border-white px-5 py-1 hover:bg-white hover:bg-opacity-10">
                 <span>{genre.name}</span>
               </div>
             ))}
